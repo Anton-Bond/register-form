@@ -1,0 +1,31 @@
+<div class="content">
+  <div class="reg-form">
+    <h1>Типовая форма</h1>
+
+    <div class="tab-wrapper">
+      <ul>
+
+        <li routerLink="/registration/personal-data" routerLinkActive="is-active">
+          Личные данные
+        </li>
+
+        <li routerLink="/registration/credit-card" routerLinkActive="is-active">
+          Данные кредитной карты
+        </li>
+
+        <li routerLink="/registration/result" routerLinkActive="is-active">
+          Результат
+        </li>
+
+      </ul>
+    </div>
+    <!-- end tab wrapper -->
+
+    <!-- <app-personal-data [form]="form"></app-personal-data> -->
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="side-bar">
+    <p>mock chat</p>
+  </div>
+</div>

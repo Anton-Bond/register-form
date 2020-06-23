@@ -1,0 +1,40 @@
+<h3>ЛИЧНЫЕ ДАННЫЕ</h3>
+
+<div *ngIf="!noData; else elseBlock">
+  <table>
+    <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>Дата рождения</th>
+        <th>Пол</th>
+        <th>Страна</th>
+        <th>Инфо</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{user.name}}</td>
+        <td>{{user.surname}}</td>
+        <td>{{user.patronymic}}</td>
+        <td>23.06.2020</td>
+        <td>Male</td>
+        <td>Belarus</td>
+        <td>{{user.email}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <!-- Button back -->
+  <a routerLink="/registration/credit-card" routerLinkActive="router-link-active" >Данные кредитной карты</a>
+
+  <!-- Button save -->
+  <button (click)="onSubmit()">Сохранить</button>
+</div>
+
+<ng-template #elseBlock>
+  <p>Вы не ввели никаких данных!</p>
+  <a routerLink="/pick-registr">Начать вводить данные</a>
+</ng-template>

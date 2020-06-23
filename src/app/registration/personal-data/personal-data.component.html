@@ -1,0 +1,91 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="card-content">
+    <span class="card-title">Все поля формы обязательны для заполнения</span>
+
+    <!-- User name input -->
+    <div>
+      <label for="name">Имя:</label>
+      <!-- when input invalid -->
+      <span class="helper-text" *ngIf="form.get('name').invalid && form.get('name').touched">
+        <span *ngIf="form.get('name').errors['required']">Заполните это поле</span>
+      </span>
+
+      <input
+        formControlName="name"
+        type="text"
+        [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched}"
+      >
+    </div>
+
+    <!-- User surname input -->
+    <div>
+      <label for="surname">Фамилия:</label>
+      <!-- when input invalid -->
+      <span class="helper-text" *ngIf="form.get('surname').invalid && form.get('surname').touched">
+        <span *ngIf="form.get('surname').errors['required']">Заполните это поле</span>
+      </span>
+
+      <input
+        formControlName="surname"
+        type="text"
+        [ngClass]="{'invalid': form.get('surname').invalid && form.get('surname').touched}"
+      >
+    </div>
+
+    <!-- User patronymic input -->
+    <div>
+      <label for="patronymic">Отчество:</label>
+      <!-- when input invalid -->
+      <span class="helper-text" *ngIf="form.get('patronymic').invalid && form.get('patronymic').touched">
+        <span *ngIf="form.get('patronymic').errors['required']">Заполните это поле</span>
+      </span>
+
+      <input
+        formControlName="patronymic"
+        type="text"
+        [ngClass]="{'invalid': form.get('patronymic').invalid && form.get('patronymic').touched}"
+      >
+    </div>
+
+    <!-- more -->
+
+    <!-- friend email input -->
+    <div>
+      <label for="email">Email друга:</label>
+      <!-- when input invalid -->
+      <span class="helper-text" *ngIf="form.get('email').invalid && form.get('email').touched">
+        <span *ngIf="form.get('email').errors['required']">Email не должен быть пустым</span>
+        <span *ngIf="form.get('email').errors['email']">Введите корректный email адрес</span>
+      </span>
+
+      <input
+        formControlName="email"
+        type="email"
+        [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+      >
+    </div>
+
+    <!-- and more -->
+
+
+
+  </div>
+
+  <div class="card-action">
+    <button
+      type="submit"
+      class="modal-action btn waves-effect"
+      [disabled]="form.invalid || form.disabled"
+    >
+    Далее
+    </button>
+  </div>
+</form>
+
+
+
+
+

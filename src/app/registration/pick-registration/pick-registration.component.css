@@ -1,0 +1,15 @@
+.pick-reg {
+	width: 100%;
+	min-height:100%;
+  background-color: #667380;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+	width: 450px;
+	min-height: 330px;
+  background-color: white;
+  margin: 0 auto;
+}
+

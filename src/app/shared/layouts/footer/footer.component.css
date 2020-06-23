@@ -1,0 +1,30 @@
+/* .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  position:fixed;
+
+} */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  border-top: 2px solid #a1afa6;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li{
+  float: left;
+  padding: 1rem .5rem;
+  /* padding: 12px 30px; */
+}
+
+.menu li a {
+  display: block;
+  text-decoration: none;
+}

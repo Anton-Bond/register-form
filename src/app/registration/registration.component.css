@@ -1,0 +1,37 @@
+.content {
+  overflow: hidden;
+}
+
+.reg-form {
+  background: #ffffff;
+  padding: 30px 30px 32000px 30px;
+  margin-bottom: -32000px;
+  min-width: 600px;
+  float: left;
+}
+
+.tab-wrapper {
+  display: flex;
+  align-items: center;
+
+}
+
+.tab-wrapper li{
+  list-style: none;
+  float: left;
+  padding: 1rem .5rem;
+}
+
+.is-active {
+  border-bottom: 3px solid  #2ebe65;
+  color: #2ebe65;
+}
+
+
+.side-bar {
+  background: #ffffff;
+  width: 230px;
+  padding: 30px 10px 32000px 25px;
+  margin-bottom: -32000px;
+  float: right;
+}

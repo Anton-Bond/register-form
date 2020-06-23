@@ -1,0 +1,70 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="card-content">
+    <span class="card-title">Все поля формы обязательны для заполнения</span>
+
+    <!-- NUMBER of credit cart input -->
+    <div>
+      <label for="number">Номер карты:</label>
+      <!-- when input invalid -->
+      <span class="helper-text" *ngIf="form.get('number').invalid && form.get('number').touched">
+        <span *ngIf="form.get('number').errors['required']">Заполните это поле</span>
+      </span>
+
+      <input
+        formControlName="number"
+        type="text"
+        [ngClass]="{'invalid': form.get('number').invalid && form.get('number').touched}"
+      >
+    </div>
+
+    <!-- DATE -->
+    <div>
+      <label for="date">Месяц/год:</label>
+      <!-- when input invalid -->
+      <span class="helper-text" *ngIf="form.get('date').invalid && form.get('date').touched">
+        <span *ngIf="form.get('date').errors['required']">Заполните это поле</span>
+      </span>
+
+      <input
+        formControlName="date"
+        type="text"
+        [ngClass]="{'invalid': form.get('date').invalid && form.get('date').touched}"
+      >
+    </div>
+
+    <!-- CVC CODE -->
+    <div>
+      <label for="code">CVC2 или CVV2:</label>
+      <!-- when input invalid -->
+      <span class="helper-text" *ngIf="form.get('code').invalid && form.get('code').touched">
+        <span *ngIf="form.get('code').errors['required']">Заполните это поле</span>
+      </span>
+
+      <input
+        formControlName="code"
+        type="text"
+        [ngClass]="{'invalid': form.get('code').invalid && form.get('code').touched}"
+      >
+    </div>
+
+    <!-- CARD TYPE -->
+    <div>
+      <label for="type">Тип карты:</label>
+      <p><input name="type" type="radio" value="debet" formControlName="type" required>Дебетовая</p>
+      <p><input name="type" type="radio" value="credit" formControlName="type" required>Кредитная</p>
+    </div>
+
+  </div>
+  <!-- Button to back -->
+    <a routerLink="/registration/personal-data">Личные данные</a>
+
+  <!-- Next button -->
+  <div class="card-action">
+    <button type="submit" class="modal-action btn waves-effect" [disabled]="form.invalid || form.disabled">
+      Далее
+    </button>
+  </div>
+</form>

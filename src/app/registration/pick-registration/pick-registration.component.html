@@ -1,0 +1,33 @@
+<div class="pick-reg">
+  <div class="container" >
+    <form (ngSubmit)="onSubmit()" >
+      <p>Выберите способ регистрации:</p>
+      <div>
+        <input name="registration" type="radio" value="personal" [(ngModel)]="registration">
+        <label for="personl">Персональная</label>
+      </div>
+
+      <div>
+        <input name="registration" type="radio" value="group" [(ngModel)]="registration">
+        <label for="group">Регистрация пользователей списком</label>
+      </div>
+
+      <div>Загрузить список</div>
+
+      <div>
+        <button type="submit">Далее</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+<!-- <div>
+  <a routerLink="/registration/personal-data">pesonal data</a>
+</div>
+
+<div>
+  <a routerLink="/registration/result">result</a>
+</div> -->
+
