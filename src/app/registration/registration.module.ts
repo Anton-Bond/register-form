@@ -9,8 +9,12 @@ import { CreditCardComponent } from './credit-card/credit-card.component';
 import { ResultComponent } from './result/result.component';
 import { RegistrationComponent } from './registration.component';
 
+import { MaskDirective } from '../shared/directives/mask.directive';
+
 @NgModule({
   declarations: [
+    MaskDirective,
+
     RegistrationComponent,
     PickRegistrationComponent,
     PersonalDataComponent,
