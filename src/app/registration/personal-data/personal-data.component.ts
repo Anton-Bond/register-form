@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { RegistrationService } from 'src/app/shared/services/registration.service';
-
-import { MaskDirective } from '../../shared/directives/mask.directive';
+import { RegistrationService } from '../../shared/services/registration.service';
+import { OptionsService } from '../../shared/services/options.service';
 
 @Component({
   selector: 'app-personal-data',
@@ -14,16 +13,22 @@ import { MaskDirective } from '../../shared/directives/mask.directive';
 export class PersonalDataComponent implements OnInit {
 
   phoneMask = {
-    generateMask: () =>  '+375 99 999-99-99'
+    generateMask: () =>  '+375 ** ***-**-**'
   }
 
   form: FormGroup;
   gender: string[] = ['Мужской', 'Женский'];
+  isMale: boolean = true;
   countries: string[] = ['Беларусь', 'Россия', 'Украина', 'Польша', 'Литва'];
+  belFlag: boolean = false;
+
+  // it depends on gender
+  exptraOptons: string[];
 
   constructor (
     private router: Router,
-    private registrationService: RegistrationService
+    private registrationService: RegistrationService,
+    private optionsService: OptionsService
   ) { }
 
   ngOnInit() {
@@ -41,16 +46,12 @@ export class PersonalDataComponent implements OnInit {
         mSurname: new FormControl(null, [Validators.required]),
         codeWord: new FormControl(null, [Validators.required]),
         about: new FormControl(null, [Validators.required]),
-        friendPhone: new FormControl('+375 ', [Validators.required]),
+        friendPhone: new FormControl(null, [Validators.required]),
         extraOpt: new FormControl(null, [Validators.required]),
         email: new FormControl(null, [Validators.required, Validators.email])
       })
     }
-  }
-
-
-  isMale(): boolean {
-    return this.form.value.gender === this.gender[0];
+    this.forMale();
   }
 
   onSubmit() {
@@ -66,4 +67,36 @@ export class PersonalDataComponent implements OnInit {
     console.log(v.country)
   }
 
+  forMale() {
+    this.phoneMask = { generateMask: () =>  '+375 ** ***-**-**' };
+    this.form.patchValue({friendPhone: '+375 '});
+    this.exptraOptons = this.optionsService.footballTeams;
+  }
+
+  forFemale() {
+    this.phoneMask = { generateMask: () =>  '+*** ** ***-**-**' };
+    this.form.patchValue({friendPhone: '+'});
+    this.form.controls.friendPhone.valueChanges.subscribe((val) => {
+      this.belFlag = /^\+375/.test(val);
+    });
+    this.exptraOptons = this.optionsService.panBrands;
+  }
+
+  chengeGender () {
+    this.isMale = this.form.value.gender === this.gender[0];
+    this.isMale ? this.forMale() : this.forFemale();
+  }
+
+  f(item) {
+    console.log('from selected: ', item)
+  }
+
+  getSelectedItem(item){
+    console.log(item)
+    // for(let i=0; i<this.exptraOptons.length; i++){
+    //   if(item === this.exptraOptons[i]){
+    //     this.selectedItem.emit(this.dropDownList[i]);
+    //   }
+    // }
+  }
 }

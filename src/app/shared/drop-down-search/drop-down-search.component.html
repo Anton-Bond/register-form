@@ -1,0 +1,8 @@
+<div class="col-md-12">
+  <label>
+    <input list="dropDownList" class="form-control" (change)="getSelectedItem($event.target.value)" placeholder="Search..." name="dropDownList" />
+  </label>
+  <datalist id="dropDownList">
+    <option *ngFor="let d of dropDownList" value="{{d.itemName}}"></option>
+  </datalist>
+</div>

@@ -1,0 +1,24 @@
+.phone {
+  background: url(../../shared/images/bel-flag.png);
+  background-repeat: no-repeat;
+  background-position: 2% center;
+  padding-left: 30px;
+  /* background-position: 0 auto; */
+  /* height: 20px;
+  padding-right: 20px; */
+}
+
+.phone.world-icon {
+  background: url(../../shared/images/world-flag.png);
+  background-repeat: no-repeat;
+  background-position: 2% center;
+  padding-left: 30px;
+}
+
+.invalid {
+  border-color: red;
+}
+
+/* input.ng-invalid.ng-touched {
+  border: 1px solid red;
+} */

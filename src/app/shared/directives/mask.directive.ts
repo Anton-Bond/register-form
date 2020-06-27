@@ -9,7 +9,7 @@ import { MaskGenerator } from '../interfaces/mаsk-generator.interface';
 export class MaskDirective {
 
     private static readonly ALPHA = 'A';
-    private static readonly NUMERIC = '9';
+    private static readonly NUMERIC = '*';
     private static readonly ALPHANUMERIC = '?';
     private static readonly REGEX_MAP = new Map([
         [MaskDirective.ALPHA, /\w/],

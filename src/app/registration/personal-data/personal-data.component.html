@@ -68,8 +68,8 @@
     <!-- Gender -->
     <div>
       <label for="gender">Пол:</label>
-      <p><input name="gender" type="radio" [value]="gender[0]" formControlName="gender">Мужской</p>
-      <p><input name="gender" type="radio" [value]="gender[1]" formControlName="gender">Женский</p>
+      <p><input name="gender" type="radio" [value]="gender[0]" formControlName="gender" (change)="chengeGender()">Мужской</p>
+      <p><input name="gender" type="radio" [value]="gender[1]" formControlName="gender" (change)="chengeGender()">Женский</p>
     </div>
 
     <!-- Select Country -->
@@ -170,9 +170,9 @@
     <!-- friend's phone-->
     <div>
       <!-- if gender is male (by default) -->
-      <label for="friendPhone" *ngIf="isMale()">Номер телефона своей девушки:</label>
+      <label for="friendPhone" *ngIf="isMale">Номер телефона своей девушки:</label>
       <!-- if gender is female -->
-      <label for="friendPhone"*ngIf="!isMale()">Номер телефона своего парня:</label>
+      <label for="friendPhone"*ngIf="!isMale">Номер телефона своего парня:</label>
 
       <!-- when input invalid -->
       <span class="helper-text" *ngIf="form.get('friendPhone').invalid && form.get('friendPhone').touched">
@@ -183,7 +183,12 @@
       <input
         formControlName="friendPhone"
         type="text"
-        [ngClass]="{'invalid': form.get('friendPhone').invalid && form.get('friendPhone').touched}"
+        class="phone"
+        [ngClass]="{
+          'invalid': form.get('friendPhone').invalid && form.get('friendPhone').touched,
+          'world-icon': form.get('friendPhone').invalid || !isMale && !belFlag
+        }"
+
         [spMask]="phoneMask"
       >
     </div>
@@ -191,25 +196,33 @@
     <!-- Extra option: footballteam or brand of pan -->
     <div>
       <!-- if gender is male (by default) -->
-      <label for="extraOpt" *ngIf="isMale()">Любимая футбольная команда:</label>
+      <label for="extraOpt" *ngIf="isMale">Любимая футбольная команда:</label>
       <!-- if gender is female -->
-      <label for="extraOpt"*ngIf="!isMale()">Любимая фирма сковородки:</label>
+      <label for="extraOpt"*ngIf="!isMale">Любимая фирма сковородки:</label>
 
       <!-- when input invalid -->
       <span class="helper-text" *ngIf="form.get('extraOpt').invalid && form.get('extraOpt').touched">
         <span *ngIf="form.get('extraOpt').errors['required']">Заполните это поле</span>
       </span>
 
-      <input
+      <!-- <input
         formControlName="extraOpt"
         type="text"
         [ngClass]="{'invalid': form.get('extraOpt').invalid && form.get('extraOpt').touched}"
+      > -->
+
+      <select
+        name="extraOpt"
+        formControlName="extraOpt"
+        [ngClass]="{'invalid': form.get('extraOpt').invalid && form.get('extraOpt').touched}"
+        required
       >
+        <option *ngFor = "let opt of exptraOptons" [value]="opt" class="dropdown-item">
+          {{opt}}
+        </option>
+      </select>
+
     </div>
-
-
-
-
   </div>
 
   <div class="card-action">
@@ -224,5 +237,6 @@
 
 
 </form>
+
 
 <button (click)="show()">show</button>

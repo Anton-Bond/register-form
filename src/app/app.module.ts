@@ -8,6 +8,9 @@ import { SupportChatComponent } from './shared/support-chat/support-chat.compone
 import { RegistrationModule } from './registration/registration.module';
 import { HeaderComponent } from './shared/layouts/header/header.component';
 import { FooterComponent } from './shared/layouts/footer/footer.component';
+import { DropdownDirective } from './shared/directives/dropdown.directive';
+import { AppFilterPipe } from './shared/pipes/app-filter.pipe';
+import { DropDownSearchComponent } from './shared/drop-down-search/drop-down-search.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { FooterComponent } from './shared/layouts/footer/footer.component';
     SiteLayoutComponent,
     SupportChatComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DropdownDirective,
+    AppFilterPipe,
+    DropDownSearchComponent
   ],
   imports: [
     BrowserModule,
