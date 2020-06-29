@@ -46,9 +46,9 @@ export class PersonalDataComponent implements OnInit {
         mSurname: new FormControl(null, [Validators.required]),
         codeWord: new FormControl(null, [Validators.required]),
         about: new FormControl(null, [Validators.required]),
+        email: new FormControl(null, [Validators.required, Validators.email]),
         friendPhone: new FormControl(null, [Validators.required]),
-        extraOpt: new FormControl(null, [Validators.required]),
-        email: new FormControl(null, [Validators.required, Validators.email])
+        extraOpt: new FormControl(null, [Validators.required])
       })
     }
     this.forMale();
@@ -60,11 +60,6 @@ export class PersonalDataComponent implements OnInit {
     // to next step
     this.router.navigate(['/registration', 'credit-card']);
 
-  }
-
-  show() {
-    const v = this.form.value
-    console.log(v.country)
   }
 
   forMale() {
@@ -87,16 +82,35 @@ export class PersonalDataComponent implements OnInit {
     this.isMale ? this.forMale() : this.forFemale();
   }
 
-  f(item) {
-    console.log('from selected: ', item)
+  set () {
+    this.form.setValue({
+      name: 'Петр',
+      surname: 'Петрович',
+      patronymic: 'Петров',
+      date: '6/27/2020',
+      gender: 'Мужской',
+      country: 'Беларусь',
+      address: 'Гомель ул.Советская',
+      mSurname: 'Содорова',
+      codeWord: 'Банк',
+      about: 'из рекламы',
+      friendPhone: '+375 29 123-45-67',
+      extraOpt: 'Металург',
+      email: 'petrov@mail.loc'
+    })
   }
 
-  getSelectedItem(item){
-    console.log(item)
-    // for(let i=0; i<this.exptraOptons.length; i++){
-    //   if(item === this.exptraOptons[i]){
-    //     this.selectedItem.emit(this.dropDownList[i]);
-    //   }
-    // }
-  }
+
+  // f(item) {
+  //   console.log('from selected: ', item)
+  // }
+
+  // getSelectedItem(item){
+  //   console.log(item)
+  //   // for(let i=0; i<this.exptraOptons.length; i++){
+  //   //   if(item === this.exptraOptons[i]){
+  //   //     this.selectedItem.emit(this.dropDownList[i]);
+  //   //   }
+  //   // }
+  // }
 }

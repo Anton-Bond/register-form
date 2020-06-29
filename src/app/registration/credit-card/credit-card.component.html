@@ -16,6 +16,7 @@
       <input
         formControlName="number"
         type="text"
+        [spMask]="numberMask"
         [ngClass]="{'invalid': form.get('number').invalid && form.get('number').touched}"
       >
     </div>
@@ -31,6 +32,7 @@
       <input
         formControlName="date"
         type="text"
+        [spMask]="dateMask"
         [ngClass]="{'invalid': form.get('date').invalid && form.get('date').touched}"
       >
     </div>
@@ -45,16 +47,17 @@
 
       <input
         formControlName="code"
-        type="text"
+        type="password"
+        [spMask]="cvcMask"
         [ngClass]="{'invalid': form.get('code').invalid && form.get('code').touched}"
       >
     </div>
 
     <!-- CARD TYPE -->
     <div>
-      <label for="type">Тип карты:</label>
-      <p><input name="type" type="radio" value="debet" formControlName="type" required>Дебетовая</p>
-      <p><input name="type" type="radio" value="credit" formControlName="type" required>Кредитная</p>
+      <label for="typeCard">Тип карты:</label>
+      <p><input name="typeCard" type="radio" [value]="cardTypes[0]" formControlName="typeCard" required>Дебетовая</p>
+      <p><input name="typeCard" type="radio" [value]="cardTypes[1]" formControlName="typeCard" required>Кредитная</p>
     </div>
 
   </div>
@@ -68,3 +71,5 @@
     </button>
   </div>
 </form>
+
+<button (click)="set()">set mock data</button>

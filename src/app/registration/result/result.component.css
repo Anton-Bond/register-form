@@ -1,0 +1,50 @@
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.show-info {
+  position: relative;
+  max-width: 230px;
+}
+
+.show-info app-popup-window {
+  position: absolute;
+  top: -150px;
+  right: -200px;
+}
+/*
+h1 { position: relative; }
+h1 img {
+  position: absolute;
+  top: 0;
+  right: 0;
+} */
+
+
+/* th {
+  text-align: center;
+}
+
+td.right {
+  text-align: right;
+}
+
+.bg-grey {
+  background-color: rgba(0, 0, 0, 0.075);
+} */
+
+/* .table .table-bordered th, th, td {
+  border: 1px solid black;
+} */
+
+/* .table thead th {
+  border-bottom: 1px solid black;
+}
+
+.table thead  {
+  border-bottom: 2px solid black;
+} */

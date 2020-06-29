@@ -1,5 +1,6 @@
 .content {
   overflow: hidden;
+  background-color: darkgray;
 }
 
 .reg-form {
@@ -8,6 +9,7 @@
   margin-bottom: -32000px;
   min-width: 600px;
   float: left;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, .75);
 }
 
 .tab-wrapper {
@@ -34,4 +36,5 @@
   padding: 30px 10px 32000px 25px;
   margin-bottom: -32000px;
   float: right;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, .75);
 }

@@ -58,11 +58,9 @@
         <span *ngIf="form.get('date').errors['required']">Заполните это поле</span>
       </span>
 
-      <input
-        formControlName="date"
-        type="text"
-        [ngClass]="{'invalid': form.get('date').invalid && form.get('date').touched}"
-      >
+      <input matInput [matDatepicker]="picker" placeholder="Выберите дату" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </div>
 
     <!-- Gender -->
@@ -188,7 +186,6 @@
           'invalid': form.get('friendPhone').invalid && form.get('friendPhone').touched,
           'world-icon': form.get('friendPhone').invalid || !isMale && !belFlag
         }"
-
         [spMask]="phoneMask"
       >
     </div>
@@ -238,5 +235,4 @@
 
 </form>
 
-
-<button (click)="show()">show</button>
+<button (click)="set()">set mock data</button>

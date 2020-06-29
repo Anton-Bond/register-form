@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { FooterComponent } from './shared/layouts/footer/footer.component';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { AppFilterPipe } from './shared/pipes/app-filter.pipe';
 import { DropDownSearchComponent } from './shared/drop-down-search/drop-down-search.component';
+// import { PopupWindowComponent } from './shared/components/popup-window/popup-window.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { DropDownSearchComponent } from './shared/drop-down-search/drop-down-sea
     FooterComponent,
     DropdownDirective,
     AppFilterPipe,
-    DropDownSearchComponent
+    DropDownSearchComponent,
+    // PopupWindowComponent
   ],
   imports: [
     BrowserModule,
     RegistrationModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

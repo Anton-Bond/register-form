@@ -12,6 +12,17 @@ import { RegistrationService } from 'src/app/shared/services/registration.servic
 export class CreditCardComponent implements OnInit {
 
   form: FormGroup;
+  // mask for fields
+  numberMask = {
+    generateMask: () =>  '**** **** **** ****'
+  }
+  dateMask = {
+    generateMask: () =>  '**/**'
+  }
+  cvcMask = {
+    generateMask: () =>  '***'
+  }
+  cardTypes: string[] = ['Дебетовая', 'Кредитная'];
 
   constructor (
     private router: Router,
@@ -26,7 +37,7 @@ export class CreditCardComponent implements OnInit {
         number: new FormControl(null, [Validators.required]),
         date: new FormControl(null, [Validators.required]),
         code: new FormControl(null, [Validators.required]),
-        type: new FormControl(null, [Validators.required])
+        typeCard: new FormControl(null, [Validators.required])
       })
     }
   }
@@ -38,4 +49,12 @@ export class CreditCardComponent implements OnInit {
     this.router.navigate(['/registration', 'result']);
   }
 
+  set() {
+    this.form.setValue({
+      number: '1234 5678 1234 5678',
+      date: '12/20',
+      code: '123',
+      typeCard: 'Дебетовая'
+    })
+  }
 }

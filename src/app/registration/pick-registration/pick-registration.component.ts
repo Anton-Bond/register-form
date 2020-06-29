@@ -27,4 +27,24 @@ export class PickRegistrationComponent implements OnInit {
     }
   };
 
+  file:any;
+  fileChanged(e) {
+      this.file = e.target.files[0];
+  }
+
+  uploadDocument(file) {
+    let fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      console.log(fileReader.result);
+    }
+    fileReader.readAsText(this.file);
+  }
+  show() {
+    let fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      console.log(fileReader.result);
+    }
+    fileReader.readAsText(this.file);
+  }
+
 }
