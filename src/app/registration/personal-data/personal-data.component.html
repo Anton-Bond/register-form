@@ -52,13 +52,13 @@
 
     <!-- Date of birhday -->
     <div>
-      <label for="date">Дата рождения:</label>
+      <label for="birthday">Дата рождения:</label>
       <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('date').invalid && form.get('date').touched">
-        <span *ngIf="form.get('date').errors['required']">Заполните это поле</span>
+      <span class="helper-text" *ngIf="form.get('birthday').invalid && form.get('birthday').touched">
+        <span *ngIf="form.get('birthday').errors['required']">Заполните это поле</span>
       </span>
 
-      <input matInput [matDatepicker]="picker" placeholder="Выберите дату" formControlName="date">
+      <input matInput [matDatepicker]="picker" placeholder="Выберите дату" formControlName="birthday">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </div>
@@ -151,17 +151,17 @@
 
     <!-- friend email input -->
     <div>
-      <label for="email">Email друга:</label>
+      <label for="friendEmail">Email друга:</label>
       <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('email').invalid && form.get('email').touched">
-        <span *ngIf="form.get('email').errors['required']">Email не должен быть пустым</span>
-        <span *ngIf="form.get('email').errors['email']">Введите корректный email адрес</span>
+      <span class="helper-text" *ngIf="form.get('friendEmail').invalid && form.get('friendEmail').touched">
+        <span *ngIf="form.get('friendEmail').errors['required']">Email не должен быть пустым</span>
+        <span *ngIf="form.get('friendEmail').errors['friendEmail']">Введите корректный email адрес</span>
       </span>
 
       <input
-        formControlName="email"
+        formControlName="friendEmail"
         type="email"
-        [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+        [ngClass]="{'invalid': form.get('friendEmail').invalid && form.get('friendEmail').touched}"
       >
     </div>
 
@@ -202,12 +202,6 @@
         <span *ngIf="form.get('extraOpt').errors['required']">Заполните это поле</span>
       </span>
 
-      <!-- <input
-        formControlName="extraOpt"
-        type="text"
-        [ngClass]="{'invalid': form.get('extraOpt').invalid && form.get('extraOpt').touched}"
-      > -->
-
       <select
         name="extraOpt"
         formControlName="extraOpt"
@@ -234,5 +228,3 @@
 
 
 </form>
-
-<button (click)="set()">set mock data</button>

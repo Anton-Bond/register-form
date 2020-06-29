@@ -7,49 +7,49 @@
 
     <!-- NUMBER of credit cart input -->
     <div>
-      <label for="number">Номер карты:</label>
+      <label for="numberCard">Номер карты:</label>
       <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('number').invalid && form.get('number').touched">
-        <span *ngIf="form.get('number').errors['required']">Заполните это поле</span>
+      <span class="helper-text" *ngIf="form.get('numberCard').invalid && form.get('numberCard').touched">
+        <span *ngIf="form.get('numberCard').errors['required']">Заполните это поле</span>
       </span>
 
       <input
-        formControlName="number"
+        formControlName="numberCard"
         type="text"
         [spMask]="numberMask"
-        [ngClass]="{'invalid': form.get('number').invalid && form.get('number').touched}"
+        [ngClass]="{'invalid': form.get('numberCard').invalid && form.get('numberCard').touched}"
       >
     </div>
 
     <!-- DATE -->
     <div>
-      <label for="date">Месяц/год:</label>
+      <label for="dateCard">Месяц/год:</label>
       <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('date').invalid && form.get('date').touched">
-        <span *ngIf="form.get('date').errors['required']">Заполните это поле</span>
+      <span class="helper-text" *ngIf="form.get('dateCard').invalid && form.get('dateCard').touched">
+        <span *ngIf="form.get('dateCard').errors['required']">Заполните это поле</span>
       </span>
 
       <input
-        formControlName="date"
+        formControlName="dateCard"
         type="text"
         [spMask]="dateMask"
-        [ngClass]="{'invalid': form.get('date').invalid && form.get('date').touched}"
+        [ngClass]="{'invalid': form.get('dateCard').invalid && form.get('dateCard').touched}"
       >
     </div>
 
     <!-- CVC CODE -->
     <div>
-      <label for="code">CVC2 или CVV2:</label>
+      <label for="codeCard">CVC2 или CVV2:</label>
       <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('code').invalid && form.get('code').touched">
-        <span *ngIf="form.get('code').errors['required']">Заполните это поле</span>
+      <span class="helper-text" *ngIf="form.get('codeCard').invalid && form.get('codeCard').touched">
+        <span *ngIf="form.get('codeCard').errors['required']">Заполните это поле</span>
       </span>
 
       <input
-        formControlName="code"
+        formControlName="codeCard"
         type="password"
         [spMask]="cvcMask"
-        [ngClass]="{'invalid': form.get('code').invalid && form.get('code').touched}"
+        [ngClass]="{'invalid': form.get('codeCard').invalid && form.get('codeCard').touched}"
       >
     </div>
 
@@ -71,5 +71,3 @@
     </button>
   </div>
 </form>
-
-<button (click)="set()">set mock data</button>

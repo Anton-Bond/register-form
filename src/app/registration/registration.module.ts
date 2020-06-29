@@ -16,6 +16,8 @@ import { RegistrationComponent } from './registration.component';
 import { PopupWindowComponent } from '../shared/components/popup-window/popup-window.component';
 
 import { MaskDirective } from '../shared/directives/mask.directive';
+import { GroupResultComponent } from './result/group-result/group-result.component';
+import { PersonalResultComponent } from './result/personal-result/personal-result.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { MaskDirective } from '../shared/directives/mask.directive';
     PersonalDataComponent,
     CreditCardComponent,
     ResultComponent,
-    PopupWindowComponent
+    PopupWindowComponent,
+    GroupResultComponent,
+    PersonalResultComponent
   ],
   imports: [
     CommonModule,

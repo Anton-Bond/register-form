@@ -1,0 +1,34 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>Дата рождения</th>
+        <th>Пол</th>
+        <th>Страна</th>
+        <th>Функции</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users,  let i=index">
+        <td>{{user.name}}</td>
+        <td>{{user.surname}}</td>
+        <td>{{user.patronymic}}</td>
+        <td>{{user.birthday}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.country}}</td>
+        <td>
+            <a (click)="editUser(i)">Править</a>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <!-- Button save -->
+  <button (click)="onSubmit()">Сохранить</button>
+</div>
+
+

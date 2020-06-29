@@ -1,9 +1,4 @@
-
-<app-personal-result *ngIf="!isGroup"></app-personal-result>
-
-<app-group-result *ngIf="isGroup"></app-group-result>
-
-<!-- <h3>ЛИЧНЫЕ ДАННЫЕ</h3>
+<h3>ЛИЧНЫЕ ДАННЫЕ</h3>
 
 <div>
   <table>
@@ -23,7 +18,7 @@
         <td>{{user.name}}</td>
         <td>{{user.surname}}</td>
         <td>{{user.patronymic}}</td>
-        <td>{{user.date | date: 'dd/MM/yyyy'}}</td>
+        <td>{{user.birthday}}</td>
         <td>{{user.gender}}</td>
         <td>{{user.country}}</td>
         <td>
@@ -40,11 +35,12 @@
   <div class="show-info">
     <a (click)="showHideCardInfo()">ДАННЫЕ КРЕДИТНОЙ КАРТЫ</a>
     <app-popup-window *ngIf="isCardShowInfo" [data]="cardDataInfo"></app-popup-window>
-  </div> -->
+  </div>
 
   <!-- Button back -->
-  <!-- <a routerLink="/registration/credit-card" routerLinkActive="router-link-active" >Данные кредитной карты</a> -->
+  <a routerLink="/registration/credit-card" routerLinkActive="router-link-active" >Данные кредитной карты</a>
 
   <!-- Button save -->
-  <!-- <button (click)="onSubmit()">Сохранить</button> -->
-<!-- </div> -->
+  <button (click)="onSubmit()">Сохранить</button>
+</div>
+

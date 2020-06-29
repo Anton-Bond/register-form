@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { DataInfo } from '../../interfaces';
+import { DataInfo } from '../../interfaces/data-info';
 @Component({
   selector: 'app-popup-window',
   templateUrl: './popup-window.component.html',

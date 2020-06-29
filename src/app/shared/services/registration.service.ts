@@ -1,31 +1,86 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+import { User } from '../interfaces/User';
+
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationService {
 
   // for store personal data
-  private pForm: FormGroup;
-  // for store card data
-  private cForm: FormGroup;
+  // with id=0 empty(default), when one person edit id=1
+  private user: User = {
+    name: '',
+    surname: '',
+    patronymic: '',
+    birthday: '',
+    gender: 'Мужской',
+    country: '',
+    address: '',
+    mSurname: '',
+    codeWord: '',
+    about: '',
+    friendEmail: '',
+    friendPhone: '',
+    extraOpt: '',
+  };
 
   // for personal data
-  get personalForm(): FormGroup {
-    return this.pForm;
+  get userData(): User {
+    return this.user;
   }
 
-  set personalForm(form: FormGroup) {
-    this.pForm = form;
+  set userData(user: User) {
+    this.user = user;
   }
 
-  // for card data
-  get cardForm(): FormGroup {
-    return this.cForm;
+  setUserFromForm(form: FormGroup) {
+    // set birthday date to format dd/mm/yyyy
+    const date = new Date(form.value.birthday.toString());
+    const birthday = ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate()))
+      + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1)))
+      + '/' + date.getFullYear();
+
+    this.user.name = form.value.name,
+    this.user.surname = form.value.surname,
+    this.user.patronymic = form.value.patronymic,
+    this.user.birthday = birthday,
+    this.user.gender = form.value.gender,
+    this.user.country = form.value.country,
+    this.user.address = form.value.address,
+    this.user.mSurname = form.value.mSurname,
+    this.user.codeWord = form.value.codeWord,
+    this.user.about = form.value.about,
+    this.user.friendEmail = form.value.friendEmail,
+    this.user.friendPhone = form.value.friendPhone,
+    this.user.extraOpt = form.value.extraOpt
   }
 
-  set cardForm(form: FormGroup) {
-    this.cForm = form;
+  setCardFromForm(form: FormGroup) {
+    this.user.numberCard = form.value.numberCard;
+    this.user.dateCard = form.value.dateCard;
+    this.user.codeCard = form.value.codeCard;
+    this.user.typeCard = form.value.typeCard;
   }
+
+  // set by default
+  resetUser() {
+    this.userData = {
+      name: '',
+      surname: '',
+      patronymic: '',
+      birthday: '',
+      gender: 'Мужской',
+      country: '',
+      address: '',
+      mSurname: '',
+      codeWord: '',
+      about: '',
+      friendEmail: '',
+      friendPhone: '',
+      extraOpt: '',
+    }
+  }
+
 }

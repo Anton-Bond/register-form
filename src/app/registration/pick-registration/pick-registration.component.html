@@ -12,7 +12,9 @@
         <label for="group">Регистрация пользователей списком</label>
       </div>
 
-      <div>Загрузить список</div>
+      <div>
+        <input type='file' placeholder="Загрузить список" (change)="fileChanged($event)">
+      </div>
 
       <div>
         <button type="submit">Далее</button>
@@ -21,19 +23,3 @@
     </form>
   </div>
 </div>
-
-<div>
-  <label id="lbl">Code </label>
-  <input type='file' (change)="fileChanged($event)">
-  <button (click)="show()">show context file</button>
-</div>
-
-
-<!-- <div>
-  <a routerLink="/registration/personal-data">pesonal data</a>
-</div>
-
-<div>
-  <a routerLink="/registration/result">result</a>
-</div> -->
-

@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
+import { User } from '../../shared/interfaces/User';
 import { RegistrationService } from 'src/app/shared/services/registration.service';
 
 @Component({
@@ -30,31 +31,35 @@ export class CreditCardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.registrationService.cardForm) {
-      this.form = this.registrationService.cardForm;
+    // if come back from result page
+    if (this.registrationService.userData.numberCard) {
+      this.setCardDataToForm(this.registrationService.userData);
     } else {
+      // set empty form
       this.form = new FormGroup({
-        number: new FormControl(null, [Validators.required]),
-        date: new FormControl(null, [Validators.required]),
-        code: new FormControl(null, [Validators.required]),
+        numberCard: new FormControl(null, [Validators.required]),
+        dateCard: new FormControl(null, [Validators.required]),
+        codeCard: new FormControl(null, [Validators.required]),
         typeCard: new FormControl(null, [Validators.required])
       })
     }
   }
 
+  // set form data
+  setCardDataToForm(user: User) {
+    this.form = new FormGroup({
+      numberCard: new FormControl(user.numberCard, [Validators.required]),
+      dateCard: new FormControl(user.dateCard, [Validators.required]),
+      codeCard: new FormControl(user.codeCard, [Validators.required]),
+      typeCard: new FormControl(user.typeCard, [Validators.required])
+    })
+  }
+
   onSubmit() {
     // store data in service
-    this.registrationService.cardForm = this.form;
+    this.registrationService.setCardFromForm(this.form);
     // to next step
     this.router.navigate(['/registration', 'result']);
   }
 
-  set() {
-    this.form.setValue({
-      number: '1234 5678 1234 5678',
-      date: '12/20',
-      code: '123',
-      typeCard: 'Дебетовая'
-    })
-  }
 }

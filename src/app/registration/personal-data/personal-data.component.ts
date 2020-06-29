@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
+import { User } from '../../shared/interfaces/User';
 import { RegistrationService } from '../../shared/services/registration.service';
 import { OptionsService } from '../../shared/services/options.service';
 
@@ -12,15 +13,17 @@ import { OptionsService } from '../../shared/services/options.service';
 })
 export class PersonalDataComponent implements OnInit {
 
-  phoneMask = {
-    generateMask: () =>  '+375 ** ***-**-**'
-  }
-
   form: FormGroup;
   gender: string[] = ['Мужской', 'Женский'];
-  isMale: boolean = true;
+  // form by defauly
+  isMale: boolean;
   countries: string[] = ['Беларусь', 'Россия', 'Украина', 'Польша', 'Литва'];
+  // for input phone number for female gender
   belFlag: boolean = false;
+  phoneMask = {
+    generateMask: () =>  ''
+  };
+
 
   // it depends on gender
   exptraOptons: string[];
@@ -28,89 +31,74 @@ export class PersonalDataComponent implements OnInit {
   constructor (
     private router: Router,
     private registrationService: RegistrationService,
-    private optionsService: OptionsService
+    private optionsService: OptionsService,
   ) { }
 
   ngOnInit() {
-    if(this.registrationService.personalForm) {
-      this.form = this.registrationService.personalForm;
+    const user = this.registrationService.userData
+    this.setUserDataToForm(user);
+    // choice of option
+    if (user.gender === this.gender[0]) {
+      this.forMale();
     } else {
-      this.form = new FormGroup({
-        name: new FormControl(null, [Validators.required]),
-        surname: new FormControl(null, [Validators.required]),
-        patronymic: new FormControl(null, [Validators.required]),
-        date: new FormControl(null, [Validators.required]),
-        gender: new FormControl(this.gender[0], [Validators.required]),
-        country: new FormControl(null, [Validators.required]),
-        address: new FormControl(null, [Validators.required]),
-        mSurname: new FormControl(null, [Validators.required]),
-        codeWord: new FormControl(null, [Validators.required]),
-        about: new FormControl(null, [Validators.required]),
-        email: new FormControl(null, [Validators.required, Validators.email]),
-        friendPhone: new FormControl(null, [Validators.required]),
-        extraOpt: new FormControl(null, [Validators.required])
-      })
+      this.forFemale();
     }
-    this.forMale();
-  }
-
-  onSubmit() {
-    // store data in service
-    this.registrationService.personalForm = this.form;
-    // to next step
-    this.router.navigate(['/registration', 'credit-card']);
 
   }
 
+  // set form data
+  setUserDataToForm(user: User) {
+    this.form = new FormGroup({
+      name: new FormControl(user.name, [Validators.required]),
+      surname: new FormControl(user.surname, [Validators.required]),
+      patronymic: new FormControl(user.patronymic, [Validators.required]),
+      birthday: new FormControl(new Date(user.birthday), [Validators.required]),
+      gender: new FormControl(user.gender, [Validators.required]),
+      country: new FormControl(user.country, [Validators.required]),
+      address: new FormControl(user.address, [Validators.required]),
+      mSurname: new FormControl(user.mSurname, [Validators.required]),
+      codeWord: new FormControl(user.codeWord, [Validators.required]),
+      about: new FormControl(user.about, [Validators.required]),
+      friendEmail: new FormControl(user.friendEmail, [Validators.required, Validators.email]),
+      friendPhone: new FormControl(user.friendPhone, [Validators.required]),
+      extraOpt: new FormControl(user.extraOpt, [Validators.required])
+    })
+  }
+
+  // settings form male gender by default
   forMale() {
+    this.isMale = true;
     this.phoneMask = { generateMask: () =>  '+375 ** ***-**-**' };
-    this.form.patchValue({friendPhone: '+375 '});
+    if (this.form.value.friendPhone === '') {
+      this.form.patchValue({friendPhone: '+375 '});
+    }
     this.exptraOptons = this.optionsService.footballTeams;
   }
 
+  // settings form female gender by default
   forFemale() {
+    this.isMale = false;
     this.phoneMask = { generateMask: () =>  '+*** ** ***-**-**' };
-    this.form.patchValue({friendPhone: '+'});
+    if (this.form.value.friendPhone === '') {
+      this.form.patchValue({friendPhone: '+'});
+    }
     this.form.controls.friendPhone.valueChanges.subscribe((val) => {
       this.belFlag = /^\+375/.test(val);
     });
     this.exptraOptons = this.optionsService.panBrands;
   }
 
+  // from gender radio button
   chengeGender () {
     this.isMale = this.form.value.gender === this.gender[0];
     this.isMale ? this.forMale() : this.forFemale();
   }
 
-  set () {
-    this.form.setValue({
-      name: 'Петр',
-      surname: 'Петрович',
-      patronymic: 'Петров',
-      date: '6/27/2020',
-      gender: 'Мужской',
-      country: 'Беларусь',
-      address: 'Гомель ул.Советская',
-      mSurname: 'Содорова',
-      codeWord: 'Банк',
-      about: 'из рекламы',
-      friendPhone: '+375 29 123-45-67',
-      extraOpt: 'Металург',
-      email: 'petrov@mail.loc'
-    })
+  onSubmit() {
+    // store data in service
+    this.registrationService.setUserFromForm(this.form);
+    // to next step
+    this.router.navigate(['/registration', 'credit-card']);
   }
 
-
-  // f(item) {
-  //   console.log('from selected: ', item)
-  // }
-
-  // getSelectedItem(item){
-  //   console.log(item)
-  //   // for(let i=0; i<this.exptraOptons.length; i++){
-  //   //   if(item === this.exptraOptons[i]){
-  //   //     this.selectedItem.emit(this.dropDownList[i]);
-  //   //   }
-  //   // }
-  // }
 }
