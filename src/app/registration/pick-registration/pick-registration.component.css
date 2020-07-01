@@ -1,15 +1,71 @@
-.pick-reg {
-	width: 100%;
-	min-height:100%;
-  background-color: #667380;
-  display: flex;
-  align-items: center;
-}
-
 .container {
 	width: 450px;
 	min-height: 330px;
-  background-color: white;
-  margin: 0 auto;
+  background-color: #fff;
+  margin: 70px auto;
+  box-shadow: 0 0 8px 2px rgba(88, 88, 88, .75);
 }
 
+form {
+  padding-top: 70px;
+  margin-left: 50px;
+}
+
+.group-form {
+  margin-top: 15px;
+  margin-left: 25px;
+}
+
+.group-form label {
+  padding-left: 10px;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+  margin-left: 20px;
+  color: #19cbac;
+  display: inline-block;
+  padding-right: 10px;
+  cursor: pointer;
+  border-bottom: 1px dotted #19cbac;
+}
+
+.inputfile + label * {
+	pointer-events: none;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  color: #000;
+}
+
+.selected-file {
+  padding-left: 10px;
+  margin-left: 10px;
+  border-left: 2px solid #bcbcbc;
+}
+
+.btn {
+  margin-left: 20px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: .5em 2em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-color: #1ff6d2 #000 #14ac92;
+  border-radius: 6px;
+  background: linear-gradient(#1ff6d2, #19cbac) #1adaba;
+  transition: 0.2s;
+}
+.btn:hover { background: linear-gradient(#32d4b9, #19cbac) #32d4b9; }
+.btn:active { background: linear-gradient(#19cbac, #1adaba) #19cbac; }

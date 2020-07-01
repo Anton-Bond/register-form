@@ -1,33 +1,60 @@
-.header {
-  margin: 0;
-  padding: 0;
-}
-
 .nav-wrapper {
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #2ebe65;
+  border-bottom: 2px solid #19cbac;
 }
 
 .brand-logo {
-  background-color: #2ebe65;
-  padding: 1rem .7rem;
+  background-color: #19cbac;
+  padding: 25px;
+  padding-left: 50px;
+  transform-origin: left top;
+  transform: skew(-20deg);
+  float: left;
+  position: relative;
+  color: #fff;
 }
 
 .brand-logo a {
-  text-decoration: none;
+  color: #fff;
 }
 
-.menu {
-  list-style: none;
-}
 
-.menu li{
-  float: left;
-  padding: 12px 30px;
-}
-
-.menu li a {
+a {
   display: block;
   text-decoration: none;
+  transform: skew(20deg);
+  color: #000;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+li{
+  padding: 12px 30px;
+  transform: skew(-20deg);
+}
+
+li a:hover {
+  color: #19cbac;
+}
+
+.mock-active {
+  background-color: #19cbac;
+}
+.mock-active a{
+  color: #fff;
+  pointer-events: none;
+  cursor: default;
+}
+
+.is-active li {
+  background-color: #19cbac;
+}
+.is-active li a{
+  color: #fff;
+  pointer-events: none;
+  cursor: default;
 }

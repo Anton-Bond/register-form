@@ -14,6 +14,8 @@ export class PickRegistrationComponent implements OnInit {
   registration = 'personal';
   // for group data
   file: Blob = null;
+  // for selected file name
+  fileName: string = 'Файл не выбран';
 
   constructor(
     private regGroupService: RegGroupService,
@@ -51,6 +53,7 @@ export class PickRegistrationComponent implements OnInit {
   fileChanged(e) {
     this.registration = 'group';
     this.file = e.target.files[0];
+    this.fileName = e.target.files[0].name;
   }
 
 }
