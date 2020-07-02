@@ -6,67 +6,108 @@
     <span class="card-title">Все поля формы обязательны для заполнения</span>
 
     <!-- NUMBER of credit cart input -->
-    <div>
+    <div class="form-gr">
       <label for="numberCard">Номер карты:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('numberCard').invalid && form.get('numberCard').touched">
-        <span *ngIf="form.get('numberCard').errors['required']">Заполните это поле</span>
-      </span>
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('numberCard').invalid && form.get('numberCard').touched">
+          <span *ngIf="form.get('numberCard').errors['required']">Заполните это поле</span>
+        </div>
 
-      <input
-        formControlName="numberCard"
-        type="text"
-        [spMask]="numberMask"
-        [ngClass]="{'invalid': form.get('numberCard').invalid && form.get('numberCard').touched}"
-      >
+        <input
+          formControlName="numberCard"
+          type="text"
+          name="numberCard"
+          id="numberCard"
+          class="text-input"
+          [spMask]="numberMask"
+          [ngClass]="{'invalid': form.get('numberCard').invalid && form.get('numberCard').touched}"
+        >
+      </div>
+
     </div>
 
     <!-- DATE -->
-    <div>
+    <div class="form-gr">
       <label for="dateCard">Месяц/год:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('dateCard').invalid && form.get('dateCard').touched">
-        <span *ngIf="form.get('dateCard').errors['required']">Заполните это поле</span>
-      </span>
 
-      <input
-        formControlName="dateCard"
-        type="text"
-        [spMask]="dateMask"
-        [ngClass]="{'invalid': form.get('dateCard').invalid && form.get('dateCard').touched}"
-      >
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('dateCard').invalid && form.get('dateCard').touched">
+          <span *ngIf="form.get('dateCard').errors['required']">Заполните это поле</span>
+        </div>
+
+        <input
+          formControlName="dateCard"
+          type="text"
+          name="dateCard"
+          id="dateCard"
+          class="text-input"
+          [spMask]="dateMask"
+          [ngClass]="{'invalid': form.get('dateCard').invalid && form.get('dateCard').touched}"
+        >
+      </div>
+
     </div>
 
     <!-- CVC CODE -->
-    <div>
+    <div class="form-gr">
       <label for="codeCard">CVC2 или CVV2:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('codeCard').invalid && form.get('codeCard').touched">
-        <span *ngIf="form.get('codeCard').errors['required']">Заполните это поле</span>
-      </span>
 
-      <input
-        formControlName="codeCard"
-        type="password"
-        [spMask]="cvcMask"
-        [ngClass]="{'invalid': form.get('codeCard').invalid && form.get('codeCard').touched}"
-      >
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('codeCard').invalid && form.get('codeCard').touched">
+          <span *ngIf="form.get('codeCard').errors['required']">Заполните это поле</span>
+        </div>
+
+        <input
+          formControlName="codeCard"
+          type="password"
+          name="codeCard"
+          id="codeCard"
+          class="text-cvc"
+          [spMask]="cvcMask"
+          [ngClass]="{'invalid': form.get('codeCard').invalid && form.get('codeCard').touched}"
+        >
+      </div>
+
     </div>
 
     <!-- CARD TYPE -->
-    <div>
+    <div class="form-gr">
       <label for="typeCard">Тип карты:</label>
-      <p><input name="typeCard" type="radio" [value]="cardTypes[0]" formControlName="typeCard" required>Дебетовая</p>
-      <p><input name="typeCard" type="radio" [value]="cardTypes[1]" formControlName="typeCard" required>Кредитная</p>
+      <p><input
+          name="typeCard"
+          type="radio"
+          id="typeCard"
+          [value]="cardTypes[0]"
+          formControlName="typeCard"
+          required
+        ><span class="card-type">{{cardTypes[0]}}</span></p>
+      <p><input
+          name="typeCard"
+          type="radio"
+          id="typeCard"
+          [value]="cardTypes[1]"
+          formControlName="typeCard"
+          required
+        ><span class="card-type">{{cardTypes[1]}}</span></p>
     </div>
 
   </div>
-  <!-- Button to back -->
-    <a routerLink="/registration/personal-data">Личные данные</a>
 
-  <!-- Next button -->
   <div class="card-action">
-    <button type="submit" class="modal-action btn waves-effect" [disabled]="form.invalid || form.disabled">
+     <!-- Button to back -->
+     <a
+      routerLink="/registration/personal-data"
+      class="back-btn"
+    >
+      <img src="/assets/images/arrow-2.png">
+      Личные данные
+    </a>
+
+     <!-- Next button -->
+    <button type="submit" class="btn" [disabled]="form.invalid || form.disabled">
       Далее
     </button>
   </div>

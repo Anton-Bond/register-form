@@ -1,0 +1,91 @@
+form {
+  padding: 3em;
+  font-size: .9em;
+}
+
+.form-gr {
+  margin-top: 1em;
+  display: flex;
+}
+
+.text-input {
+  display: block;
+  width: 100%;
+  float: left;
+  border: 1px solid #bcbcbc;
+  height: 1.8em;
+  padding-left: 1em;
+}
+
+.text-cvc {
+  display: block;
+  width: 20%;
+  float: left;
+  border: 1px solid #bcbcbc;
+  height: 1.8em;
+  padding-left: 1em;
+}
+
+label {
+  display: block;
+  text-align: left;
+  float: left;
+  width: 33%;
+}
+
+.card-type {
+  margin-top: .3em;
+  padding-left: .7em;
+  padding-right: 4em;
+}
+
+.invalid {
+  border-color: red;
+}
+
+.btn {
+  margin-left: 20px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: .5em 2em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-color: #1ff6d2 #000 #14ac92;
+  border-radius: 6px;
+  background: linear-gradient(#1ff6d2, #19cbac) #1adaba;
+  transition: 0.2s;
+}
+.btn:hover {
+  background: linear-gradient(#32d4b9, #19cbac) #32d4b9;
+}
+.btn:active {
+  background: linear-gradient(#19cbac, #1adaba) #19cbac;
+}
+.btn:disabled {
+  background: linear-gradient(#a3aaa9, #dbe7e5) #a3aaa9;
+  border-color: #fcfcfc #000 #cfcfcf;
+}
+
+.helper-text {
+  color: red;
+  font-size: .8em;
+}
+
+.input-box {
+  width: 45%;
+}
+
+a {
+  color: #19cbac;
+}
+
+a:hover {
+  color: #000;
+}
+
+.card-action {
+  margin-left: 12%;
+  margin-top: 2em;
+}

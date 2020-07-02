@@ -1,4 +1,4 @@
-<div>
+<div class="wrap-table">
   <table>
     <thead>
       <tr>
@@ -20,15 +20,18 @@
         <td>{{user.gender}}</td>
         <td>{{user.country}}</td>
         <td>
-            <a (click)="editUser(i)">Править</a>
+            <a class="btn-dop" (click)="editUser(i)">Править</a>
         </td>
       </tr>
     </tbody>
 
   </table>
 
-  <!-- Button save -->
-  <button (click)="onSubmit()">Сохранить</button>
+  <div class="card-action">
+    <!-- Button save -->
+    <button class="btn" (click)="onSubmit()">Сохранить</button>
+  </div>
+
 </div>
 
 

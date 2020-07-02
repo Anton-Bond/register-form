@@ -36,25 +36,25 @@ export class RegistrationService {
   }
 
   setUserFromForm(form: FormGroup) {
-    // set birthday date to format dd/mm/yyyy
+    // set birthday date to format mm/dd/yyyy
     const date = new Date(form.value.birthday.toString());
-    const birthday = ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate()))
-      + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1)))
+    const birthday = ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1)))
+      + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate()))
       + '/' + date.getFullYear();
 
-    this.user.name = form.value.name,
-    this.user.surname = form.value.surname,
-    this.user.patronymic = form.value.patronymic,
-    this.user.birthday = birthday,
-    this.user.gender = form.value.gender,
-    this.user.country = form.value.country,
-    this.user.address = form.value.address,
-    this.user.mSurname = form.value.mSurname,
-    this.user.codeWord = form.value.codeWord,
-    this.user.about = form.value.about,
-    this.user.friendEmail = form.value.friendEmail,
-    this.user.friendPhone = form.value.friendPhone,
-    this.user.extraOpt = form.value.extraOpt
+    this.user.name = form.value.name;
+    this.user.surname = form.value.surname;
+    this.user.patronymic = form.value.patronymic;
+    this.user.birthday = birthday.toString();
+    this.user.gender = form.value.gender;
+    this.user.country = form.value.country;
+    this.user.address = form.value.address;
+    this.user.mSurname = form.value.mSurname;
+    this.user.codeWord = form.value.codeWord;
+    this.user.about = form.value.about;
+    this.user.friendEmail = form.value.friendEmail;
+    this.user.friendPhone = form.value.friendPhone;
+    this.user.extraOpt = form.value.extraOpt;
   }
 
   setCardFromForm(form: FormGroup) {

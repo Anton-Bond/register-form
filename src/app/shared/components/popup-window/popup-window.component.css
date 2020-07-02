@@ -1,6 +1,45 @@
 .wrapper {
-  width: 200px;
-  height: 300px;
+  width: 240px;
+  height: 160px;
+  transform: translate(20px, 10px);
+}
+
+.marker {
+  float: left;
+  margin-top: 80px;
   background-color: #575757;
-  border-radius: 20px;
+  height: 30px;
+  width: 30px;
+  transform-origin: left top;
+  transform: rotate(-45deg);
+}
+
+.window-info {
+  float: right;
+  right: 15px;
+  width: 200px;
+  height: 160px;
+  padding: 15px;
+  background-color: #575757;
+  border-radius: 10px;
+  position: absolute;
+  overflow: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+.name-info {
+  display: block;
+  color: #bcbcbc;
+  font-size: 10px;
+  overflow-x: hidden;
+}
+
+.value-info {
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  overflow-x: hidden;
 }

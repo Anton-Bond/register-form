@@ -48,10 +48,10 @@ export class PersonalResultComponent implements OnInit {
     ]
     // for popup window
     this.cardDataInfo = [
-      {name: 'Номер карты:', value: this.user.numberCard},
-      {name: 'Месяц/год:', value: this.user.dateCard},
-      {name: 'CVC2 или CVV2:', value: this.user.codeCard},
-      {name: 'Тип карты:', value: this.user.typeCard},
+      {name: 'Номер карты', value: this.user.numberCard},
+      {name: 'Месяц/год', value: this.user.dateCard},
+      {name: 'CVC2 или CVV2', value: this.user.codeCard},
+      {name: 'Тип карты', value: this.user.typeCard},
     ];
   }
 

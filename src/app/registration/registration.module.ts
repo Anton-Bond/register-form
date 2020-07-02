@@ -14,7 +14,6 @@ import { CreditCardComponent } from './credit-card/credit-card.component';
 import { ResultComponent } from './result/result.component';
 import { RegistrationComponent } from './registration.component';
 import { PopupWindowComponent } from '../shared/components/popup-window/popup-window.component';
-
 import { MaskDirective } from '../shared/directives/mask.directive';
 import { GroupResultComponent } from './result/group-result/group-result.component';
 import { PersonalResultComponent } from './result/personal-result/personal-result.component';
@@ -22,7 +21,6 @@ import { PersonalResultComponent } from './result/personal-result/personal-resul
 @NgModule({
   declarations: [
     MaskDirective,
-
     RegistrationComponent,
     PickRegistrationComponent,
     PersonalDataComponent,

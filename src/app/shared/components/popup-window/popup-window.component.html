@@ -1,15 +1,15 @@
 <div class="wrapper">
-  <ul>
-    <li *ngFor="let d of data">
-      {{d.name}}: {{d.value}}
-    </li>
-  </ul>
-</div>>
-
-<!-- <div class="wrapper">
-  <ul>
-    <li *ngFor="let item of data | keyvalue">
-      {{item.key}}: {{item.value}}
-    </li>
-  </ul>
-</div>> -->
+    <div class="marker"></div>
+    <div class="window-info">
+      <ul>
+        <li *ngFor="let d of data">
+          <span class="name-info">
+            {{d.name}}:
+          </span>
+          <span class="value-info">
+            {{d.value}}
+          </span>
+        </li>
+      </ul>
+    </div>
+</div>

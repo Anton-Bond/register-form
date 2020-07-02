@@ -1,25 +1,164 @@
+form {
+  padding: 3em;
+  font-size: .9em;
+}
+
+.form-gr {
+  margin-top: 1em;
+  display: flex;
+}
+
+.text-input {
+  display: block;
+  width: 100%;
+  float: left;
+  border: 1px solid #bcbcbc;
+  height: 1.8em;
+}
+
+.input-textarea {
+  width: 100%;
+  max-height: 10em;
+  resize: none;
+  display: block;
+}
+
+label {
+  display: block;
+  text-align: left;
+  float: left;
+  width: 33%;
+}
+
+.date-input {
+  border: 1px solid #bcbcbc;
+  height: 1.5em;
+  width: 35%;
+}
+
+.form-gr-datapicker {
+  display: flex;
+  margin-top: 15px;
+}
+
+.form-gr-datapicker input, label {
+  margin-top: 8px;
+}
+
+.gender-name {
+  margin-top: .3em;
+  padding-left: .7em;
+  padding-right: 4em;
+}
+
+.card-action {
+  margin-left: 30%;
+  margin-top: 2em;
+}
+
 .phone {
-  background: url(../../shared/images/bel-flag.png);
+  background: url(/assets/images/bel-flag.png);
   background-repeat: no-repeat;
   background-position: 2% center;
-  padding-left: 30px;
-  /* background-position: 0 auto; */
-  /* height: 20px;
-  padding-right: 20px; */
+  padding-left: 2.1em;
+  width: 91%;
+  display: block;
+  float: left;
+  border: 1px solid #bcbcbc;
+  height: 1.8em;
 }
 
 .phone.world-icon {
-  background: url(../../shared/images/world-flag.png);
+  background: url(/assets/images/world-flag.png);
   background-repeat: no-repeat;
   background-position: 2% center;
-  padding-left: 30px;
+  padding-left: 2.1em;
 }
 
 .invalid {
   border-color: red;
 }
 
+.btn {
+  margin-left: 20px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: .5em 2em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-color: #1ff6d2 #000 #14ac92;
+  border-radius: 6px;
+  background: linear-gradient(#1ff6d2, #19cbac) #1adaba;
+  transition: 0.2s;
+}
+.btn:hover {
+  background: linear-gradient(#32d4b9, #19cbac) #32d4b9;
+}
+.btn:active {
+  background: linear-gradient(#19cbac, #1adaba) #19cbac;
+}
+.btn:disabled {
+  background: linear-gradient(#a3aaa9, #dbe7e5) #a3aaa9;
+  border-color: #fcfcfc #000 #cfcfcf;
+}
 
-/* input.ng-invalid.ng-touched {
-  border: 1px solid red;
-} */
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #fff;
+  background-image: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  color: #000;
+  position: relative;
+  display: flex;
+  width: 15em;
+  height: 1.8em;
+  line-height: 3;
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid #bcbcbc;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: -0.6em;
+  right: 0;
+  padding: 0 1em;
+  background: #bcbcbc;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+.helper-text {
+  color: red;
+  font-size: .8em;
+}
+
+.input-box {
+  width: 45%;
+}

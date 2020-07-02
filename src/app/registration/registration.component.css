@@ -1,40 +1,47 @@
 .content {
-  overflow: hidden;
+  width: 90%;
+  margin: auto;
+  padding: 30px;
   background-color: #f1f1f1f1;
+
 }
 
 .reg-form {
   background: #ffffff;
-  padding: 30px 30px 32000px 30px;
-  margin-bottom: -32000px;
-  min-width: 600px;
+  padding: 30px 30px 0 30px;
+  width: calc(100% - 390px);
+  min-width: 450px;
   float: left;
-  box-shadow: 0 0 8px 2px rgba(0, 0, 0, .75);
+  box-shadow: 0 0 8px 2px rgba(60, 60, 60, .3);
+  margin-bottom: 3em;
+
+}
+
+.side-bar {
+  background: #ffffff;
+  width: 270px;
+  padding: 30px 10px 30px 25px;
+  float: right;
+  box-shadow: 0 0 8px 2px rgba(60, 60, 60, .3);
 }
 
 .tab-wrapper {
   display: flex;
   align-items: center;
-
+  border-bottom: 1px solid #bcbcbc;
 }
 
-.tab-wrapper li{
+.tab-wrapper li {
   list-style: none;
   float: left;
-  padding: 1rem .5rem;
+  padding: 1rem;
+  pointer-events: none;
+  cursor: default;
 }
 
 .is-active {
-  border-bottom: 3px solid  #2ebe65;
-  color: #2ebe65;
+  border-bottom: 3px solid  #19cbac;
+  color: #19cbac;
 }
 
 
-.side-bar {
-  background: #ffffff;
-  width: 230px;
-  padding: 30px 10px 32000px 25px;
-  margin-bottom: -32000px;
-  float: right;
-  box-shadow: 0 0 8px 2px rgba(0, 0, 0, .75);
-}

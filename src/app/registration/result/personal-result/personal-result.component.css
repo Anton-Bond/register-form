@@ -1,50 +1,81 @@
+.wrap-table {
+  padding: 2em;
+}
+
 table {
   border-collapse: collapse;
 }
 
 table, th, td {
-  border: 1px solid black;
+  margin: 2em auto;
+  border: 1px solid #bcbcbc;
+}
+
+th {
+  height: 1em;
+  width: 14%;
+  font-size: .8em;
+  padding: .5em;
+  font-weight: 410;
+  overflow-x: hidden;
+  text-align: left;
+}
+
+td {
+  height: 1.4em;
+  width: 14%;
+  font-size: .8em;
+  padding: .8em .5em;
+  overflow-x: hidden;
+  text-align: left;
 }
 
 .show-info {
   position: relative;
-  max-width: 230px;
+  max-width: 250px;
 }
 
 .show-info app-popup-window {
   position: absolute;
-  top: -150px;
+  top: -80px;
   right: -200px;
 }
-/*
-h1 { position: relative; }
-h1 img {
-  position: absolute;
-  top: 0;
-  right: 0;
-} */
 
-
-/* th {
-  text-align: center;
+.btn-dop {
+  color: #19cbac;
+  cursor: pointer;
+  border-bottom: 1px dotted #19cbac;
 }
 
-td.right {
-  text-align: right;
+.back-btn {
+  color: #19cbac;
 }
 
-.bg-grey {
-  background-color: rgba(0, 0, 0, 0.075);
-} */
-
-/* .table .table-bordered th, th, td {
-  border: 1px solid black;
-} */
-
-/* .table thead th {
-  border-bottom: 1px solid black;
+.back-btn:hover {
+  color: #000;
 }
 
-.table thead  {
-  border-bottom: 2px solid black;
-} */
+.card-action {
+  margin-top: 2em;
+}
+
+.btn {
+  margin-left: 20px;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: .5em 2em;
+  outline: none;
+  border-width: 2px 0;
+  border-style: solid none;
+  border-color: #1ff6d2 #000 #14ac92;
+  border-radius: 6px;
+  background: linear-gradient(#1ff6d2, #19cbac) #1adaba;
+  transition: 0.2s;
+}
+.btn:hover {
+  background: linear-gradient(#32d4b9, #19cbac) #32d4b9;
+}
+.btn:active {
+  background: linear-gradient(#19cbac, #1adaba) #19cbac;
+}

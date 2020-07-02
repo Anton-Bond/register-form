@@ -6,212 +6,311 @@
     <span class="card-title">Все поля формы обязательны для заполнения</span>
 
     <!-- User name input -->
-    <div>
+    <div class="form-gr">
       <label for="name">Имя:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('name').invalid && form.get('name').touched">
-        <small *ngIf="form.get('name').errors['required']">Заполните это поле</small>
-      </span>
 
-      <input
-        formControlName="name"
-        type="text"
-        [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched}"
-      >
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('name').invalid && form.get('name').touched">
+          <span *ngIf="form.get('name').errors['required']">Заполните это поле</span>
+        </div>
+
+        <input
+          formControlName="name"
+          type="text"
+          name="name"
+          id="name"
+          class="text-input"
+          [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched}"
+        >
+      </div>
     </div>
 
     <!-- User surname input -->
-    <div>
+    <div class="form-gr">
       <label for="surname">Фамилия:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('surname').invalid && form.get('surname').touched">
-        <span *ngIf="form.get('surname').errors['required']">Заполните это поле</span>
-      </span>
 
-      <input
-        formControlName="surname"
-        type="text"
-        [ngClass]="{'invalid': form.get('surname').invalid && form.get('surname').touched}"
-      >
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('surname').invalid && form.get('surname').touched">
+          <span *ngIf="form.get('surname').errors['required']">Заполните это поле</span>
+        </div>
+
+        <input
+          formControlName="surname"
+          type="text"
+          name="surname"
+          id="surname"
+          class="text-input"
+          [ngClass]="{'invalid': form.get('surname').invalid && form.get('surname').touched}"
+        >
+      </div>
+
     </div>
 
     <!-- User patronymic input -->
-    <div>
+    <div class="form-gr">
       <label for="patronymic">Отчество:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('patronymic').invalid && form.get('patronymic').touched">
-        <span *ngIf="form.get('patronymic').errors['required']">Заполните это поле</span>
-      </span>
 
-      <input
-        formControlName="patronymic"
-        type="text"
-        [ngClass]="{'invalid': form.get('patronymic').invalid && form.get('patronymic').touched}"
-      >
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('patronymic').invalid && form.get('patronymic').touched">
+          <span *ngIf="form.get('patronymic').errors['required']">Заполните это поле</span>
+        </div>
+
+        <input
+          formControlName="patronymic"
+          type="text"
+          name="patronymic"
+          id="patronymic"
+          class="text-input"
+          [ngClass]="{'invalid': form.get('patronymic').invalid && form.get('patronymic').touched}"
+        >
+      </div>
+
     </div>
 
-    <!-- Date of birhday -->
-    <div>
+    <!-- Date of birthday -->
+    <div class="form-gr-datapicker">
       <label for="birthday">Дата рождения:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('birthday').invalid && form.get('birthday').touched">
-        <span *ngIf="form.get('birthday').errors['required']">Заполните это поле</span>
-      </span>
 
-      <input matInput [matDatepicker]="picker" placeholder="Выберите дату" formControlName="birthday">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('birthday').invalid && form.get('birthday').touched">
+          <span *ngIf="form.get('birthday').errors['required']">Заполните это поле</span>
+        </div>
+
+        <input
+          name="birthday"
+          id="birthday"
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Выберите дату"
+          formControlName="birthday"
+          class="date-input"
+          [ngClass]="{'invalid': form.get('birthday').invalid && form.get('birthday').touched}"
+        >
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+
     </div>
 
     <!-- Gender -->
-    <div>
+    <div class="form-gr">
       <label for="gender">Пол:</label>
-      <p><input name="gender" type="radio" [value]="gender[0]" formControlName="gender" (change)="chengeGender()">Мужской</p>
-      <p><input name="gender" type="radio" [value]="gender[1]" formControlName="gender" (change)="chengeGender()">Женский</p>
+      <input
+        name="gender"
+        id="gender"
+        type="radio"
+        [value]="gender[0]"
+        formControlName="gender"
+        (change)="chengeGender()"
+      ><span class="gender-name">{{gender[0]}}</span>
+      <input
+        name="gender"
+        id="gender"
+        type="radio"
+        [value]="gender[1]"
+        formControlName="gender"
+        (change)="chengeGender()"
+      ><span class="gender-name">{{gender[1]}}</span>
     </div>
 
     <!-- Select Country -->
-    <div>
+    <div class="form-gr">
       <label for="country">Страна проживания:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('country').invalid && form.get('country').touched">
-        <span *ngIf="form.get('country').errors['required']">Заполните это поле</span>
-      </span>
 
-      <select
-        name="country"
-        formControlName="country"
-        [ngClass]="{'invalid': form.get('country').invalid && form.get('country').touched}"
-        required
-      >
-		    <option *ngFor = "let country of countries" [value] = "country">
-          {{country}}
-		    </option>
-      </select>
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('country').invalid && form.get('country').touched">
+          <span *ngIf="form.get('country').errors['required']">Заполните это поле</span>
+        </div>
+
+        <div class="select">
+          <select
+            name="country"
+            id="country"
+            formControlName="country"
+            [ngClass]="{'invalid': form.get('country').invalid && form.get('country').touched}"
+            required
+          >
+            <option *ngFor = "let country of countries" [value] = "country">
+              {{country}}
+            </option>
+          </select>
+        </div>
+      </div>
+
     </div>
 
     <!-- Address -->
-    <div>
+    <div class="form-gr">
       <label for="address">Адрес, почтовый индекс:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('address').invalid && form.get('address').touched">
-        <span *ngIf="form.get('address').errors['required']">Заполните это поле</span>
-      </span>
 
-      <input
-        formControlName="address"
-        type="text"
-        [ngClass]="{'invalid': form.get('address').invalid && form.get('address').touched}"
-      >
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('address').invalid && form.get('address').touched">
+          <span *ngIf="form.get('address').errors['required']">Заполните это поле</span>
+        </div>
+
+        <input
+          formControlName="address"
+          type="text"
+          name="address"
+          id="address"
+          class="text-input"
+          [ngClass]="{'invalid': form.get('address').invalid && form.get('address').touched}"
+        >
+      </div>
+
     </div>
 
     <!-- Mother's surname -->
-    <div>
+    <div class="form-gr">
       <label for="mSurname">Девичья фамилия матери:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('mSurname').invalid && form.get('mSurname').touched">
-        <span *ngIf="form.get('mSurname').errors['required']">Заполните это поле</span>
-      </span>
 
-      <input
-        formControlName="mSurname"
-        type="text"
-        [ngClass]="{'invalid': form.get('mSurname').invalid && form.get('mSurname').touched}"
-      >
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('mSurname').invalid && form.get('mSurname').touched">
+          <span *ngIf="form.get('mSurname').errors['required']">Заполните это поле</span>
+        </div>
+
+        <input
+          formControlName="mSurname"
+          type="text"
+          name="mSurname"
+          id="mSurname"
+          class="text-input"
+          [ngClass]="{'invalid': form.get('mSurname').invalid && form.get('mSurname').touched}"
+        >
+      </div>
+
     </div>
 
     <!-- Bank code word-->
-    <div>
+    <div class="form-gr">
       <label for="codeWord">Кодовое слово в вашем банке:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('codeWord').invalid && form.get('codeWord').touched">
-        <span *ngIf="form.get('codeWord').errors['required']">Заполните это поле</span>
-      </span>
 
-      <input
-        formControlName="codeWord"
-        type="text"
-        [ngClass]="{'invalid': form.get('codeWord').invalid && form.get('codeWord').touched}"
-      >
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('codeWord').invalid && form.get('codeWord').touched">
+          <span *ngIf="form.get('codeWord').errors['required']">Заполните это поле</span>
+        </div>
+
+        <input
+          formControlName="codeWord"
+          type="text"
+          name="codeWord"
+          id="codeWord"
+          class="text-input"
+          [ngClass]="{'invalid': form.get('codeWord').invalid && form.get('codeWord').touched}"
+        >
+      </div>
+
     </div>
 
      <!-- How, about site-->
-     <div>
+     <div class="form-gr">
       <label for="about">Как вы узнали о нашем сайте:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('about').invalid && form.get('about').touched">
-        <span *ngIf="form.get('about').errors['required']">Заполните это поле</span>
-      </span>
 
-      <textarea
-        formControlName="about"
-        [ngClass]="{'invalid': form.get('about').invalid && form.get('about').touched}"
-      ></textarea>
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('about').invalid && form.get('about').touched">
+          <span *ngIf="form.get('about').errors['required']">Заполните это поле</span>
+        </div>
+
+        <textarea
+          formControlName="about"
+          name="about"
+          id="about"
+          class="input-textarea"
+          [ngClass]="{'invalid': form.get('about').invalid && form.get('about').touched}"
+        ></textarea>
+      </div>
+
     </div>
 
     <!-- friend email input -->
-    <div>
+    <div class="form-gr">
       <label for="friendEmail">Email друга:</label>
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('friendEmail').invalid && form.get('friendEmail').touched">
-        <span *ngIf="form.get('friendEmail').errors['required']">Email не должен быть пустым</span>
-        <span *ngIf="form.get('friendEmail').errors['friendEmail']">Введите корректный email адрес</span>
-      </span>
 
-      <input
-        formControlName="friendEmail"
-        type="email"
-        [ngClass]="{'invalid': form.get('friendEmail').invalid && form.get('friendEmail').touched}"
-      >
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('friendEmail').invalid && form.get('friendEmail').touched">
+          <span *ngIf="form.get('friendEmail').errors['required']">Email не должен быть пустым</span>
+          <span *ngIf="form.get('friendEmail').errors['friendEmail']">Введите корректный email адрес</span>
+        </div>
+
+        <input
+          formControlName="friendEmail"
+          type="email"
+          name="friendEmail"
+          id="friendEmail"
+          class="text-input"
+          [ngClass]="{'invalid': form.get('friendEmail').invalid && form.get('friendEmail').touched}"
+        >
+      </div>
+
     </div>
 
     <!-- friend's phone-->
-    <div>
+    <div class="form-gr">
       <!-- if gender is male (by default) -->
       <label for="friendPhone" *ngIf="isMale">Номер телефона своей девушки:</label>
       <!-- if gender is female -->
       <label for="friendPhone"*ngIf="!isMale">Номер телефона своего парня:</label>
 
+      <div class="input-box">
+        <div class="helper-text" *ngIf="form.get('friendPhone').invalid && form.get('friendPhone').touched">
+          <span *ngIf="form.get('friendPhone').errors['required']">Заполните это поле</span>
+        </div>
+
+
+        <input
+          formControlName="friendPhone"
+          type="text"
+          name="friendPhone"
+          id="friendPhone"
+          class="phone"
+          [ngClass]="{
+            'invalid': form.get('friendPhone').invalid && form.get('friendPhone').touched,
+            'world-icon': form.get('friendPhone').invalid || !isMale && !belFlag
+          }"
+          [spMask]="phoneMask"
+        >
+      </div>
       <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('friendPhone').invalid && form.get('friendPhone').touched">
-        <span *ngIf="form.get('friendPhone').errors['required']">Заполните это поле</span>
-      </span>
 
-
-      <input
-        formControlName="friendPhone"
-        type="text"
-        class="phone"
-        [ngClass]="{
-          'invalid': form.get('friendPhone').invalid && form.get('friendPhone').touched,
-          'world-icon': form.get('friendPhone').invalid || !isMale && !belFlag
-        }"
-        [spMask]="phoneMask"
-      >
     </div>
 
     <!-- Extra option: footballteam or brand of pan -->
-    <div>
+    <div class="form-gr">
       <!-- if gender is male (by default) -->
       <label for="extraOpt" *ngIf="isMale">Любимая футбольная команда:</label>
       <!-- if gender is female -->
       <label for="extraOpt"*ngIf="!isMale">Любимая фирма сковородки:</label>
 
-      <!-- when input invalid -->
-      <span class="helper-text" *ngIf="form.get('extraOpt').invalid && form.get('extraOpt').touched">
-        <span *ngIf="form.get('extraOpt').errors['required']">Заполните это поле</span>
-      </span>
+      <div class="input-box">
+        <!-- when input invalid -->
+        <div class="helper-text" *ngIf="form.get('extraOpt').invalid && form.get('extraOpt').touched">
+          <span *ngIf="form.get('extraOpt').errors['required']">Заполните это поле</span>
+        </div>
 
-      <select
-        name="extraOpt"
-        formControlName="extraOpt"
-        [ngClass]="{'invalid': form.get('extraOpt').invalid && form.get('extraOpt').touched}"
-        required
-      >
-        <option *ngFor = "let opt of exptraOptons" [value]="opt" class="dropdown-item">
-          {{opt}}
-        </option>
-      </select>
+        <div class="select">
+          <select
+            name="extraOpt"
+            id="extraOpt"
+            formControlName="extraOpt"
+            [ngClass]="{'invalid': form.get('extraOpt').invalid && form.get('extraOpt').touched}"
+            required
+          >
+            <option *ngFor = "let opt of exptraOptons" [value]="opt" class="dropdown-item">
+              {{opt}}
+            </option>
+          </select>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -219,7 +318,7 @@
   <div class="card-action">
     <button
       type="submit"
-      class="modal-action btn waves-effect"
+      class="btn"
       [disabled]="form.invalid || form.disabled"
     >
     Далее
