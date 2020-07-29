@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { User } from '../../shared/interfaces/User';
-import { RegistrationService } from 'src/app/shared/services/registration.service';
+import { RegistrationService } from '../../shared/services/registration.service';
 
 @Component({
   selector: 'app-credit-card',
